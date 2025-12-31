@@ -23,11 +23,11 @@ function App() {
   return (
     <div className="">
       <h1 className="text-6xl">Password Generator</h1>
-      <div id="password-gen" className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-lg m-5 gap-1 flex flex-col w-xl ">
+      <div id="password-gen" className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-lg m-5 gap-1 flex flex-col w-xl">
         <div id="text-container" className="flex-row flex gap-0.5">
           <input id="password-text" type="text" placeholder="Password" readOnly value={password} ref={passwordAsRef} 
           className="bg-gray-800 dark:bg-white p-1 size-10/10 rounded-l-lg"></input>
-          <button id="copy-button"className="rounded-r-lg text-white p-1 cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800">Copy</button>
+          <button id="copy-button"className="rounded-r-lg text-white p-1 cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800 ">Copy</button>
         </div>
         <div className="flex flex-row place-content-between items-center">
           <div id="length"className="items-center flex">
