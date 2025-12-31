@@ -21,13 +21,30 @@ function App() {
   }, [length, numbersAllowed, symbolsAllowed, setPassword]);
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-6xl">Password Generator</h1>
-      <div id="password-gen" className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg m-5">
-        <input type="text" placeholder="Password" readOnly value={password} ref={passwordAsRef} className="bg-gray-800 dark:bg-white p-1 size-10/10 rounded-lg"></input>
-        <input type="range"></input>
-        <input type="checkbox"></input>
-        <input type="checkbox"></input>
+      <div id="password-gen" className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-lg m-5 gap-1 flex flex-col w-xl ">
+        <div id="text-container" className="flex-row flex gap-0.5">
+          <input id="password-text" type="text" placeholder="Password" readOnly value={password} ref={passwordAsRef} 
+          className="bg-gray-800 dark:bg-white p-1 size-10/10 rounded-l-lg"></input>
+          <button id="copy-button"className="rounded-r-lg text-white p-1 cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800">Copy</button>
+        </div>
+        <div className="flex flex-row place-content-between items-center">
+          <div id="length"className="items-center flex">
+            <input id="slider" type="range" min="6" max="30" value={length} className="cursor-pointer"
+              onChange={(e) => {setLength(Number(e.target.value))}}/>
+            <label htmlFor="slider" className="m-2 text-white">Length: {length}</label>
+          </div>
+          <div id="checkboxes">
+            <label htmlFor="number-check" className="m-2 text-white">Use Numbers</label>
+            <input id="number-check" type="checkbox" defaultChecked={numbersAllowed} 
+              onChange={()=>{setNumbersAllowed((prev)=> !prev)}} className=""/>
+
+            <label htmlFor="symbol-check" className="m-2 text-white">Use Symbols</label>
+            <input id="symbol-check"type="checkbox" defaultChecked={symbolsAllowed} 
+              onChange={()=>{setSymbolsAllowed((prev)=> !prev)}} className=""/>
+          </div>
+        </div>
       </div>
     </div>
   )
