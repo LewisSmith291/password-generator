@@ -16,6 +16,27 @@ h1{
   color: #ffffff;
 }
 
+img{
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+#speech{
+  position: absolute;
+  background-color: #ff0000ff;
+	border-radius: 1rem;
+  color: white;
+  align-items: center;
+  max-height: 0;
+  transition: max-height 0.15s ease-in;
+  overflow: hidden;
+}
+
+.speech-show{
+  max-height: 500px;
+}
+
 body {
   margin: 0;
   display: flex;

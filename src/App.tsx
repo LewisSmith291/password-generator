@@ -1,6 +1,5 @@
 import { useCallback, useState, useRef,useEffect} from 'react'
 import './App.css'
-import { PasswordGenerator } from './assets/passwordGenerator';
 
 function App() {
   const [length, setLength] = useState(10);
@@ -9,6 +8,7 @@ function App() {
   const [password, setPassword] = useState("");
 
   const passwordAsRef = useRef(null);
+  const speechRef = useRef(null);
   const passwordGen = useCallback(() => {
     let pass = "";
     let strData = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -21,18 +21,26 @@ function App() {
     setPassword(pass);
   }, [length, numbersAllowed, symbolsAllowed, setPassword]);
 
+  const copyButton = useCallback(() => {
+    passwordAsRef.current?.select();
+    window.navigator.clipboard.writeText(password);
+  },[password]);
+
+
   useEffect( () => {
-    PasswordGenerator();
-  },[length, numbersAllowed, symbolsAllowed, passwordGen]);
+    passwordGen();
+  },[length, numbersAllowed, symbolsAllowed]);
 
   return (
     <>
       <h1 className="text-6xl">Password Generator</h1>
       <div id="password-gen" className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-lg m-5 gap-1 flex flex-col w-xl">
         <div id="text-container" className="flex-row flex gap-0.5">
-          <input id="password-text" type="text" placeholder="Password" readOnly value={password} ref={passwordAsRef} 
-          className="bg-gray-800 dark:bg-white p-1 size-10/10 rounded-l-lg"></input>
-          <button id="copy-button"className="rounded-r-lg text-white p-1 cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800 ">Copy</button>
+          <input id="password-text" type="text" placeholder="Password" readOnly value={password} ref={passwordAsRef}
+          className="bg-gray-800 dark:bg-white p-2 size-10/10 rounded-l-lg"></input>
+          <button id="copy-button" onClick={copyButton}  className="flex flex-row justify-center items-center rounded-r-lg text-white py-2 px-3 cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800">
+            <img src="src\assets\clipboard.svg" className="relative invert vertical"></img>Copy
+            </button> 
         </div>
         <div className="flex flex-row place-content-between items-center">
           <div id="length"className="items-center flex">
