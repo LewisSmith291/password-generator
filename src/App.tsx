@@ -1,5 +1,6 @@
-import { useCallback, useState, useRef } from 'react'
+import { useCallback, useState, useRef,useEffect} from 'react'
 import './App.css'
+import { PasswordGenerator } from './assets/passwordGenerator';
 
 function App() {
   const [length, setLength] = useState(10);
@@ -20,8 +21,12 @@ function App() {
     setPassword(pass);
   }, [length, numbersAllowed, symbolsAllowed, setPassword]);
 
+  useEffect( () => {
+    PasswordGenerator();
+  },[length, numbersAllowed, symbolsAllowed, passwordGen]);
+
   return (
-    <div className="">
+    <>
       <h1 className="text-6xl">Password Generator</h1>
       <div id="password-gen" className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-lg m-5 gap-1 flex flex-col w-xl">
         <div id="text-container" className="flex-row flex gap-0.5">
@@ -46,7 +51,7 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
