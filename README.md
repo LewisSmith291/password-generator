@@ -7,4 +7,4 @@ The user can change the length of the password, and also if the password has to 
 This project was created in order to practise using TailwindCSS and React
 
 ## How can you use the project?
-You can access the website by visiting [here](/here/)
+You can access the website by visiting [https://lewissmith291.github.io/password-generator/](https://lewissmith291.github.io/password-generator/)
