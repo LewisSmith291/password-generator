@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: 'https://lewissmith291.github.io/password-generator/',
+  base: '/',
 });
