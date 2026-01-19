@@ -38,7 +38,7 @@ function App() {
           <input id="password-text" type="text" placeholder="Password" readOnly value={password} ref={passwordAsRef}
           className="bg-gray-800 dark:bg-white p-2 size-10/10 rounded-l-lg"></input>
           <button id="copy-button" onClick={copyButton}  className="flex flex-row justify-center items-center rounded-r-lg text-white py-2 px-3 cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800">
-            <img src="src\assets\clipboard.svg" className="relative invert vertical"></img>Copy
+            <img src="https://lewissmith291.github.io/src/assets/clipboard.svg" className="relative invert vertical"></img>Copy
             </button> 
         </div>
         <div className="flex flex-row place-content-between items-center">
