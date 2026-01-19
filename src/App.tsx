@@ -7,8 +7,7 @@ function App() {
   const [symbolsAllowed, setSymbolsAllowed] = useState(true);
   const [password, setPassword] = useState("");
 
-  const passwordAsRef = useRef(null);
-  const speechRef = useRef(null);
+  const passwordAsRef = useRef<HTMLInputElement>(null);
   const passwordGen = useCallback(() => {
     let pass = "";
     let strData = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
